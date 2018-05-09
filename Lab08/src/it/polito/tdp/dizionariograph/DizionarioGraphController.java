@@ -93,7 +93,7 @@ public class DizionarioGraphController {
     @FXML
     void doTrovaGradoMax(ActionEvent event) {
     	txtResult.clear();
-    	if(model.getGraph()==null) {
+    	if(model.getGraph()==null || model.getGraph().vertexSet().size()==0) {
     		txtResult.setText("Cliccare prima su 'Genera Grafo' per creare il grafo.");
     	}
     	txtResult.setText(model.findMaxDegree());
