@@ -49,7 +49,7 @@ public class DizionarioGraphController {
     	try {
     		numeroLettere = Integer.parseInt(txtNumLettere.getText());
     		model.createGraph(numeroLettere);
-    		
+    		txtResult.setText("Grafo creato!");
     	}catch(NumberFormatException nfe) {
     		txtResult.setText("Inserire il numero di lettere delle parole da cercare.");
   		
@@ -93,10 +93,10 @@ public class DizionarioGraphController {
     @FXML
     void doTrovaGradoMax(ActionEvent event) {
     	txtResult.clear();
-    	if(model.getGraph().vertexSet().size()==0) {
-    		txtResult.setText("Cliccare su 'Genera Grafo' per creare il grafo prima.");
+    	if(model.getGraph()==null) {
+    		txtResult.setText("Cliccare prima su 'Genera Grafo' per creare il grafo.");
     	}
-    	txtResult.appendText(model.findMaxDegree());
+    	txtResult.setText(model.findMaxDegree());
     	
     	
     }

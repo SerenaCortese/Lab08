@@ -69,7 +69,8 @@ public class Model {
 
 	public String findMaxDegree() {
 		int max = -1;
-		Parola verticeMax = null;;
+		Parola verticeMax = null;
+		String res = "";
 		for(Parola p : graph.vertexSet()) {
 			if(this.graph.degreeOf(p)>max) {
 				max = this.graph.degreeOf(p);
@@ -77,8 +78,11 @@ public class Model {
 			}
 		}
 		List<String> vicini = this.displayNeighbours(verticeMax.getNome());
-		
-		return "Grado massimo: "+max + "\nVertice col grado massimo: "+verticeMax.getNome()+"\nLista vicini: \n"+vicini;
+		res= "Grado massimo: "+max + "\nVertice col grado massimo: "+verticeMax.getNome()+"\nLista vicini: \n";
+		for (String s : vicini) {
+			res+= s+"\n";
+		}
+		return res;
 	}
 
 	public boolean parolaPresente(String parola) {
